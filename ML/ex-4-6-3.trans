@@ -1,0 +1,136 @@
+
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 13 (stdknl, built Thu Jan 16 23:56:17 2020)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> > > > # poly: : error: Syntax error: fun binding is not an identifier applied to one or more
+   patterns.
+Static Errors
+> # poly: : error: Value or constructor (x) has not been declared Found near (fn a => x + y + z)
+poly: : error: Value or constructor (y) has not been declared Found near (fn a => x + y + z)
+poly: : error: Value or constructor (z) has not been declared Found near (fn a => x + y + z)
+Static Errors
+> # val funA1 = 6: int
+> funA1 1 1 1;
+poly: : error: Type error in function application.
+   Function: funA1 : int
+   Argument: 1 : int
+   Reason: Value being applied does not have a function type
+Found near funA1 1 1 1
+Static Errors
+> funA1 (1,1,1)
+# ;
+poly: : error: Type error in function appfunlication.
+   Function: funA1 : int
+   Argument: (1, 1, 1) : int * int * intfun
+   Reason: Value being applied does not have a function type
+Found near funA1 (1, 1, 1)
+Static Errors
+> # val funA1 = fn: int -> int -> int -> int
+> funA1 1 1 1;
+val it = 3: int
+> # val funA2 = fn: int -> int -> int -> int
+> funA2 2 2 2;
+val it = 6: int
+> 4 > 1;
+val it = true: bool
+> # val funB1 = fn: int -> int -> bool
+> poly: : error: Type error in function appfunlication.
+   Function: funA1 : int
+   Argument: (1, 1, 1) : int * int * intfun
+   Reason: Value being applied does not have a function type
+Found near funA1 (1, 1, 1)
+Static Errors
+> # val funA1 = fn: int -> int -> int -> int
+> 
+poly: : error: <identifier> expected but : was found
+poly: : error: End of type expected but in was found
+poly: : error: ; expected but function was found
+Static Errors
+> funB1 1 2;
+val it = true: bool
+> # val funB1 = fn: int -> int -> bool
+> val it = true: bool
+> # val funB1 = fn: int -> int -> bool
+> 
+# poly: : error: ; expected but # was found
+Static ErrorsfunC2
+> funB1 1 2;
+val it = false: bool
+> funB1 4 3;
+val it = true: bool
+> # val funB2 = fn: int -> int -> bool
+> funB2 8 9;
+val it = true: bool
+> funB2 7 5;fun
+val it = false: bool
+> "hi" ^ "you"
+# ;
+val it = "hiyou": string
+> # val funC2 = fn: string -> string -> string
+> funC2 "hi" " you";
+val it = "hi you": string
+> # val funC1 = fn: string -> string -> string
+> funC1 "h" " k";
+val it = " kh": string
+> # val funC1 = fn: string -> string -> string
+> funB2 7 5;fun
+val it = false: bool
+# funC1 "h" " I";
+poly: : error: = expected but ; was found
+poly: : error: Expression expected but ; was found
+Static Errors
+> # val funC1 = fn: string -> string -> string
+> funC1 "h" " I";
+val it = "h I": string
+> # val funD2 = fn: 'a list -> 'a list -> 'a list
+> funD2 [1] [2];
+val it = [1, 2]: int list
+> # val funD1 = fn: 'a list -> 'a list -> 'a list
+> funD1 [1] [2];
+val it = [1, 2]: int list
+> # val funE2 = fn: int -> int -> int
+> funE2 5 1;
+val it = 5: intf
+> funE2 1 9;
+val it = 9: int
+> # val funE1 = fn: int -> int -> int
+> funE1 4 9;
+val it = 4: int
+> # val funE1 = fn: int -> int -> int
+> funE1 4 8;
+val it = 4: int
+> # val funE1 = fn: int -> int -> int
+> funE1 4 9;
+val it = 9: int
+> funE1 6 5;
+val it = 6: int
+> (*** A ***)
+funA1 1 1 1;
+funA2 1 1 1;
+(*** B ***)
+funB1 1 2;
+funB2 1 2;
+(*** C ***)
+funC1 "hi" " you";
+funC2 "hi" " you";
+(*** D ***)
+funD1 [1] [2];
+funD2 [1] [2];
+(*** E ***)
+funE1 7 8;
+funE2 7 8;
+# val it = 3: int
+> val it = 3: int
+> # val it = false: bool
+> val it = true: bool
+> # val it = "hi you": string
+> val it = "hi you": string
+> # val it = [1, 2]: int list
+> val it = [1, 2]: int list
+> # val it = 8: int
+> val it = 8: int
+> 
+Process HOL killed

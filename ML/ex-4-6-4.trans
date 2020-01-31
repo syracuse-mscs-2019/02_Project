@@ -1,0 +1,50 @@
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 13 (stdknl, built Thu Jan 16 23:56:17 2020)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> fun sqr [] = [] | sqr (x::xs) = (x * x) :: sqr xs;
+val sqr = fn: int list -> int list
+> sqr [];
+val it = []: int list
+> sqr [2];
+val it = [4]: int list
+> sqr [2,3];
+val it = [4, 9]: int list
+> val listSquares = let
+#        val (x::xs)
+ #    in
+  poly: : error:      [] = expected = [] | but in(x * x was found) ::
+poly: : error: ExpressionlistSqu expectedares xs
+ but end;in was found
+# poly: : error: end expected but | was found
+poly: : error: End of let expression expected but | was found
+#
+poly: : error: ; expected but end was found
+Static Errors
+> val listSquares arr =
+l# et
+        fun sqr x =#  x * x
+#       fun arq [] = [] | arq (x::xs) = sqr x :: arq xs
+#     in
+ #      arq arr
+end;#
+poly: : error: Constructor (listSquares) has not been declared Found near listSquares arr
+poly: : error: Value or constructor (arr) has not been declared
+Found near
+  let fun sqr x = x * x; fun arq ... = [...] | arq ... = ... in arq arr end
+Static Errors
+> fun listSquares arr =
+l# et
+        fun#  sqr x = x * x
+#       fun arq [] = [] | arq (x::xs) = sqr x :: arq xs
+#     in
+ #      arq arr
+end;#
+val listSquares = fn: int list -> int list
+> listSquares [1,2];
+val it = [1, 4]: int list
+> listSquares [3,4];
+val it = [9, 16]: int list
+> %  

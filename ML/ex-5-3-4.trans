@@ -1,0 +1,162 @@
+---------------------------------------------------------------------
+       HOL-4 [Kananaskis 13 (stdknl, built Thu Jan 16 23:56:17 2020)]
+
+       For introductory HOL help, type: help "hol";
+       To exit type <Control>-D
+---------------------------------------------------------------------
+> fun flt a b = map a b;
+val flt = fn: ('a -> 'b) -> 'a list -> 'b list
+> flt (fn x => x < 5) [1,4,6];
+val it = [true, true, false]: bool list
+> filter (fn x => x < 5) [1,4,6];
+val it = [1, 4]: int list
+> fun Filtr proc arr =
+let
+        fun t# # ru proc arr = map proc arr;
+    #     fun retr (x::xs) (z::zs) = if x then z :: retr xs zs
+    in
+      # poly: : error:   retr (else expectedtru pro but inc arr)  was arr
+end;found
+poly: : error: Expression expected but in was found
+# #
+Static Errors
+> fun Filtr proc arr =
+le# t
+        fun t# ru proc arr = map proc arr;
+        val#  out = []
+        fun re# tr (x::xs) (z::zs) = if x then z @ out else out :: retr xs zs
+    in
+# #         retr (tru proc arr) arr
+end;
+# poly: : warning: Matches are not exhaustive.
+Found near
+  fun retr (x :: xs) (... :: ...) = if x then z @ out else out :: ... ...
+val Filtr = fn: ('a list list -> bool) -> 'a list list list -> 'a list list
+> Filtr (fn x => x < 5) [1,4,6];
+poly: : error: Type error in function application.
+   Function: Filtr :
+      ('a list list -> bool) -> 'a list list list -> 'a list list
+   Argument: (fn x => x < 5) : int -> bool
+   Reason:
+      Can't unify int (*In Basis*) with 'a list list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+poly: : error: Type error in function application.
+   Function: Filtr (fn x => x < 5) : 'a list list list -> 'a list list
+   Argument: [1, 4, 6] : int list
+   Reason:
+      Can't unify int (*In Basis*) with 'a list list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+Static Errors
+> Filtr [1,4,6] (fn x => x < 5);
+poly: : error: Type error in function application.
+   Function: Filtr :
+      ('a list list -> bool) -> 'a list list list -> 'a list list
+   Argument: [1, 4, 6] : int list
+   Reason: Can't unify int list to 'a list list -> bool (Incompatible types)
+Found near Filtr [1, 4, 6] (fn x => x < 5)
+poly: : error: Type error in function application.
+   Function: Filtr [1, 4, 6] : 'a list list list -> 'a list list
+   Argument: (fn x => x < 5) : int -> bool
+   Reason: Can't unify 'a list list list to int -> bool (Incompatible types)
+Found near Filtr [1, 4, 6] (fn x => x < 5)
+Static Errors
+> fun Filtr proc arr =
+le# t
+        fun t# ru proc arr = map proc arr;
+        val#  out = []
+      #   fun retr (x::xs) (z::zs) = if x then [z] @ out else out :: retr xs zs
+    in
+      # #   retr (tru proc arr) arr
+end;#
+poly: : warning: Matches are not exhaustive.
+Found near
+  fun retr (x :: xs) (... :: ...) = if x then [...] @ out else out :: ... ...
+val Filtr = fn: ('a list -> bool) -> 'a list list -> 'a list list
+> Filtr (fn x => x < 5) [1,4,6];
+poly: : error: Type error in function application.
+   Function: Filtr : ('a list -> bool) -> 'a list list -> 'a list list
+   Argument: (fn x => x < 5) : int -> bool
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+poly: : error: Type error in function application.
+   Function: Filtr (fn x => x < 5) : 'a list list -> 'a list list
+   Argument: [1, 4, 6] : int list
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+Static Errors
+> 1::[2,4];
+val it = [1, 2, 4]: int list
+> fun Filtr proc arr =
+le# t
+        fun t# ru proc arr = map proc arr;
+        val#  out = []
+        fun r# etr (x::xs) (z::zs) = if x then z::out else out :: retr xs zs
+    in
+       # #  retr (tru proc arr) arr
+end;#
+poly: : warning: Matches are not exhaustive.
+Found near
+  fun retr (x :: xs) (... :: ...) = if x then z :: out else out :: ... ...
+val Filtr = fn: ('a list -> bool) -> 'a list list -> 'a list list
+> Filtr (fn x => x < 5) [1,4,6];
+poly: : error: Type error in function application.
+   Function: Filtr : ('a list -> bool) -> 'a list list -> 'a list list
+   Argument: (fn x => x < 5) : int -> bool
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+poly: : error: Type error in function application.
+   Function: Filtr (fn x => x < 5) : 'a list list -> 'a list list
+   Argument: [1, 4, 6] : int list
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+Static Errors
+> ^[[Cfun Filtr proc1 arr =
+lpoly: : error: et
+        val unknown characterout = [] "\^["
+
+        fun re# tr proc2#  (z::# zs) = if proc2 z then z::out else out :: retr proc2 zs
+    in
+     #    retr # proc1 arr
+end;#
+poly: : error: ] expected but ; was found
+Static Errors
+> fun Filtr proc1 arr =
+let
+        val # out = []#
+        fun re# tr proc2 (z::zs) = if proc2 z then z::out else out :: retr proc2 zs
+    in
+     #    retr # proc1 arr
+end;#
+poly: : warning: Matches are not exhaustive.
+Found near
+  fun retr proc2 (... :: ...) = if proc2 z then z :: out else out :: ... ...
+val Filtr = fn: ('a list -> bool) -> 'a list list -> 'a list list
+> Filtr (fn x => x < 5) [1,4,6];
+poly: : error: Type error in function application.
+   Function: Filtr : ('a list -> bool) -> 'a list list -> 'a list list
+   Argument: (fn x => x < 5) : int -> bool
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+poly: : error: Type error in function application.
+   Function: Filtr (fn x => x < 5) : 'a list list -> 'a list list
+   Argument: [1, 4, 6] : int list
+   Reason:
+      Can't unify int (*In Basis*) with 'a list (*In Basis*)
+         (Different type constructors)
+Found near Filtr (fn x => x < 5) [1, 4, 6]
+Static Errors
+> (fn x => x < 5) 1;
+val it = true: bool
+> %   
